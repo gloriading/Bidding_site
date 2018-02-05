@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
+import {AuctionShowPage} from './AuctionShowPage';
 
-
-
-class App extends Component {
-  render() {
-    return (
-      
-    );
-  }
+function App () {
+  return (
+    <AuctionShowPage />
+  );
 }
 
 export default App;
