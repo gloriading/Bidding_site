@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import {AuctionShowPage} from './AuctionShowPage';
 import {AuctionIndexPage} from './AuctionIndexPage';
-import {CurrentDateTime} from './CurrentDateTime';
+import {NavBar} from './NavBar';
+import {
+ BrowserRouter as Router,
+ Link,
+ Route
+} from 'react-router-dom';
 
 function App () {
   return (
-    <div className="App">
-      <CurrentDateTime />
-      <AuctionIndexPage />
-      <AuctionShowPage />
-    </div>
+    <Router >
+      <div className="App">
+        <NavBar />
+        <Route path="/auctions" exact component={AuctionIndexPage} />
+        <Route path="/auctions/id" component={AuctionShowPage} />
+      </div>
+    </Router>
   );
 }
 
