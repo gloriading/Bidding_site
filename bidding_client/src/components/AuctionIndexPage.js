@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import auctions from '../data/auctions';
+// import auctions from '../data/auctions';
 import {AuctionForm} from './AuctionForm';
+import {Auction} from '../requests/auctions';
 
  class AuctionIndexPage extends Component {
    constructor (props) {
       super(props);
 
       this.state = {
-        auctions: auctions,
+        loading:true,
+        auctions: [],
         newAuction: {
           title: "",
           detail: "",
@@ -56,8 +58,28 @@ import {AuctionForm} from './AuctionForm';
     }
   }
 
+  componentDidMount () {
+     Auction
+       .all()
+       .then(auctions => {
+         this.setState({auctions, loading: false})
+       })
+   }
+
    render(){
-     const {newAuction} = this.state;
+     const {newAuction, loading} = this.state;
+
+      if (loading) {
+        return (
+          <main
+            className="AuctionIndexPage"
+            style={{padding: '0 20px'}}
+          >
+            <h3>Loading auctions...</h3>
+          </main>
+        )
+      }
+
      return (
        <main className="AuctionIndexPage" style={{padding: '0  20px'}} >
          <h2>Auctions: </h2>
