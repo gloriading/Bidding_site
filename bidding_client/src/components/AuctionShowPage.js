@@ -2,14 +2,15 @@ import React, {Component} from 'react';
 import {AuctionDetails} from './AuctionDetails';
 import {BidDetails} from './BidDetails';
 import {BidList} from './BidList';
-import auction from '../data/auction';
+import {Auction} from '../requests/auctions';
 
 class AuctionShowPage extends Component {
   constructor (props) {
      super(props);
 
      this.state = {
-       auction: auction
+       loading: true,
+       auction: {}
      };
      this.deleteBid = this.deleteBid.bind(this);
      this.delete = this.delete.bind(this);
@@ -34,22 +35,44 @@ class AuctionShowPage extends Component {
       });
     }
 
+    componentDidMount () {
+      Auction
+        .get(221)
+        .then(auction => {
+          this.setState({auction, loading: false})
+        });
+    }
+
 
   render(){
-    const {bids = []} = this.state.auction;
+    const {auction, loading} = this.state;
+    const {bids = []} = auction;
 
-    if (Object.keys(this.state.auction).length < 1) {
-       return (
-         <main
-           className="AuctionShowPage"
-           style={{
-             padding: '0 20px'
-           }}
-         >
-           <h2>Auction doesn't exist!</h2>
-         </main>
-       );
-     }
+    if (loading) {
+      return (
+        <main
+          className="AuctionShowPage"
+          style={{
+            padding: '0 20px'
+          }}
+        >
+          <h3>Loading auction...</h3>
+        </main>
+      )
+    }
+
+    // if (Object.keys(this.state.auction).length < 1) {
+    //    return (
+    //      <main
+    //        className="AuctionShowPage"
+    //        style={{
+    //          padding: '0 20px'
+    //        }}
+    //      >
+    //        <h2>Auction doesn't exist!</h2>
+    //      </main>
+    //    );
+    //  }
      return (
        <main className="AuctionShowPage">
          <AuctionDetails {...this.state.auction} />
