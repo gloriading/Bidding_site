@@ -14,7 +14,7 @@ function App () {
       <div className="App">
         <NavBar />
         <Route path="/auctions" exact component={AuctionIndexPage} />
-        <Route path="/auctions/id" component={AuctionShowPage} />
+        <Route path="/auctions/:id" component={AuctionShowPage} />
       </div>
     </Router>
   );

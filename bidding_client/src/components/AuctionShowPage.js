@@ -36,8 +36,9 @@ class AuctionShowPage extends Component {
     }
 
     componentDidMount () {
+      const {params} = this.props.match;
       Auction
-        .get(221)
+        .get(params.id)
         .then(auction => {
           this.setState({auction, loading: false})
         });

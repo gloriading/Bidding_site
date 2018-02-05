@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {AuctionForm} from './AuctionForm';
 import {Auction} from '../requests/auctions';
+import {Link} from 'react-router-dom';
 
  class AuctionIndexPage extends Component {
    constructor (props) {
@@ -91,7 +92,9 @@ import {Auction} from '../requests/auctions';
            {
              this.state.auctions.map(auction => (
                <li key={auction.id}>
-                 <a href="">{auction.title}</a>
+                 <Link to={`/auctions/${auction.id}`}>
+                  {auction.title}
+                  </Link>
                  {' '}
                  <button
                   onClick={this.deleteAuction(auction.id)}
