@@ -34,7 +34,6 @@ private
     request.headers['AUTHORIZATION']
   end
 
-
   def authenticate_user!
     head :unauthorized unless current_user.present?
   end
