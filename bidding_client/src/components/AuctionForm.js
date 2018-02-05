@@ -33,7 +33,7 @@ import React from 'react';
 
        <div>
          <label htmlFor="detail">Details</label> <br />
-         <input
+         <textarea
            onChange={handleChange("detail")}
            value={auction.detail}
            name="detail"

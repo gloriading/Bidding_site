@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {AuctionShowPage} from './AuctionShowPage';
 import {AuctionIndexPage} from './AuctionIndexPage';
+import {AuctionNewPage} from './AuctionNewPage';
 import {NavBar} from './NavBar';
 import {
  BrowserRouter as Router,
- Link,
- Route
+ Route,
+ Switch
 } from 'react-router-dom';
 
 function App () {
@@ -13,8 +14,11 @@ function App () {
     <Router >
       <div className="App">
         <NavBar />
-        <Route path="/auctions" exact component={AuctionIndexPage} />
-        <Route path="/auctions/:id" component={AuctionShowPage} />
+        <Switch>
+          <Route path="/auctions" exact component={AuctionIndexPage} />
+          <Route path="/auctions/new" component={AuctionNewPage} />
+          <Route path="/auctions/:id" component={AuctionShowPage} />
+        </Switch>
       </div>
     </Router>
   );

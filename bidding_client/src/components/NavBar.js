@@ -11,6 +11,7 @@
        }}
      >
        <Link style={{marginRight: '20px'}} to="/">Home</Link>
+       <Link style={{marginRight: '20px'}} to="/auctions/new">New Auction</Link>
        <Link to="/auctions">Auctions</Link>
        <CurrentDateTime
          style={{

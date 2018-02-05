@@ -76,7 +76,7 @@ class AuctionShowPage extends Component {
     //  }
      return (
        <main className="AuctionShowPage">
-         <AuctionDetails {...this.state.auction} />
+         <AuctionDetails {...auction} />
          <button onClick={this.delete} > Delete </button>
          <h3>Bids:</h3>
          <BidList
