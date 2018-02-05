@@ -7,3 +7,4 @@
 
 > rails g controller Api::V1::Auctions --no-assets --no-helper --skip-template-engine
 > rails g model auction title detail:text end_date:date reserve_price:float
+> rails g model bid title bid_price:float auction:references
