@@ -1,7 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+
+#--------------------------------------------------------------------- auction
+100.times do
+  Auction.create(
+    title: Faker::Book.title,
+    detail: Faker::Lorem.paragraphs,
+    end_date: Faker::Date.forward(23),
+    reserve_price: rand(50..500)
+  )
+end
+
+auctions = Auction.all
+
+puts Cowsay.say("Created #{auctions.count} auctions", :ghostbusters)
+#--------------------------------------------------------------------- bid
+auctions.each do |auction|
+  rand(1..5).times.each do
+    Bid.create(
+      bid_price: rand(1..550),
+      auction: auction
+    )
+  end
+end
+
+bids = Bid.all
+
+puts Cowsay.say("Create #{bids.count} bids", :moose)
