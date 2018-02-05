@@ -11,3 +11,7 @@
 > rails g migration remove_title_from_bids title:string
 
 > rails g serializer auction title:string detail:text end_date:date reserve_price:float
+
+> rails g model user first_name last_name email password_digest
+> rails g migration add_user_to_actions user:references
+> rails g migration add_user_to_bids user:references
