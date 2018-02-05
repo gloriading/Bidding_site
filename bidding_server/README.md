@@ -18,3 +18,5 @@
 
 > rails g controller Api::Application --no-assets --no-helper --skip-template-engine
 > rails g migration add_api_key_to_user api_key:string
+
+>rails g controller Api::V1::Tokens --no-assets --no-helper --skip-template-engine
