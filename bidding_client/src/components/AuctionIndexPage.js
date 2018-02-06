@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {AuctionForm} from './AuctionForm';
 import {Auction} from '../requests/auctions';
 import {Link} from 'react-router-dom';
 

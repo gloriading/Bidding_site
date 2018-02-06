@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {AuctionDetails} from './AuctionDetails';
-import {BidDetails} from './BidDetails';
 import {BidList} from './BidList';
 import {Auction} from '../requests/auctions';
 
