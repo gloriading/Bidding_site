@@ -48,18 +48,23 @@ import {Link} from 'react-router-dom';
 
      return (
        <main className="AuctionIndexPage" style={{padding: '0  20px'}} >
-         <h2>Auctions: </h2>
+         <h4>Auctions List </h4>
 
          <ul style={{paddingLeft: '10px'}}>
            {
              this.state.auctions.map(auction => (
-               <li key={auction.id}>
-                 <Link to={`/auctions/${auction.id}`}>
+               <li key={auction.id}
+                 style={{marginBottom: '5px', color: 'hotpink'}}>
+                 <Link
+                   to={`/auctions/${auction.id}`}
+                   style={{color: 'hotpink'}}
+                   >
                   {auction.title}
                   </Link>
                  {' '}
                  <button
                   onClick={this.deleteAuction(auction.id)}
+                  style={{backgroundColor:'lightyellow'}}
                    >Delete</button>
                </li>
              ))

@@ -5,10 +5,11 @@ function BidDetails (props = {}) {
    return (
      <div>
        <p>Bid: {props.bid_price}</p>
-       <p>By {props.author_full_name}</p>
+       <p style={{color:'gray'}}>By <em>{props.author_full_name}</em></p>
        <p><strong>Created At:</strong> {props.created_at}</p>
        <button
          onClick={() => onDeleteClick(props.id)}
+         style={{backgroundColor:'PLUM'}}
        >Delete</button>
      </div>
    );

@@ -7,9 +7,9 @@ function AuctionDetails (props = {}) {
      <div className="AuctionDetails">
        <h4>Title: {props.title}</h4>
        <p>Details: {props.detail}</p>
-       <p>By {author.full_name}</p>
+       <p style={{color:'gray'}}>By <em>{author.full_name}</em></p>
        <p>Ends on: {props.end_date}</p>
-       <p>Reserve Price: {props.reserve_price} </p>
+       <p>Reserve Price: <strong>{props.reserve_price} </strong></p>
        <p><strong>Created At:</strong> {props.created_at}</p>
        <p><strong>Updated At:</strong> {props.updated_at}</p>
      </div>

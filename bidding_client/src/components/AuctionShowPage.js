@@ -74,10 +74,13 @@ class AuctionShowPage extends Component {
     //    );
     //  }
      return (
-       <main className="AuctionShowPage">
+       <main className="AuctionShowPage" style={{marginLeft: '20px'}}>
          <AuctionDetails {...auction} />
-         <button onClick={this.delete} > Delete </button>
-         <h3>Bids:</h3>
+         <button
+           onClick={this.delete}
+           style={{backgroundColor:'lightyellow'}}
+            > Delete </button>
+         <h3 style={{marginTop:"20px", color:"MediumPurple"}}>Bids</h3>
          <BidList
            bids={bids}
            onBidDeleteClick={this.deleteBid}
