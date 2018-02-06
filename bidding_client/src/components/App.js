@@ -3,6 +3,7 @@ import {AuctionShowPage} from './AuctionShowPage';
 import {AuctionIndexPage} from './AuctionIndexPage';
 import {AuctionNewPage} from './AuctionNewPage';
 import {SignInPage} from './SignInPage';
+import {SignUpPage} from './SignUpPage';
 import {AuthRoute} from './AuthRoute';
 import {NavBar} from './NavBar';
 import {
@@ -66,6 +67,9 @@ class App extends Component {
              <Route path="/sign_in" render={props => {
                return <SignInPage {...props} onSignIn={this.signIn} />
              }} />
+             <Route path="/sign_up" render={props => {
+                return <SignUpPage {...props} onSignUp={this.signIn} />
+              }} />
              <AuthRoute
                isAuthenticated={this.isAuth()}
                path="/auctions"

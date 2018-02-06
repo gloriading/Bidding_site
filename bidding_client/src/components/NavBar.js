@@ -8,7 +8,7 @@
       event.preventDefault();
       onSignOutClick();
   };
-    
+
    return (
      <nav
        style={{
@@ -38,12 +38,19 @@
            ]
 
            ) : (
-             <Link
-               style={{marginLeft: 'auto', marginRight: '20px'}}
-               to="/sign_in"
-             >
-                 Sign In
-             </Link>
+             <span style={{marginLeft: 'auto'}}>
+               <Link
+                 to="/sign_in"
+               >
+                   Sign In
+               </Link>
+               <Link
+                style={{marginLeft: '10px', marginRight: '20px'}}
+                to="/sign_up"
+              >
+                  Sign Up
+              </Link>
+          </span>
            )
          }
        <CurrentDateTime />
