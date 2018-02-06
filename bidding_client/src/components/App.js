@@ -18,16 +18,25 @@ class App extends Component {
      super(props);
 
      this.state = {
-       user: null
+       user: null,
+       loading: true
      };
      this.signIn = this.signIn.bind(this);
+     this.signOut = this.signOut.bind(this);
    }
+
+   signOut () {
+      localStorage.removeItem('jwt');
+      this.setState({user: null});
+     }
 
    signIn () {
      const jwt = localStorage.getItem('jwt');
      if (jwt) {
        const payload = jwtDecode(jwt);
-       this.setState({user: payload});
+       this.setState({user: payload, loading: false});
+     } else {
+       this.setState({loading: false});
      }
    }
 
@@ -40,11 +49,19 @@ class App extends Component {
    }
 
    render () {
-     const {user} = this.state;
+     const {user, loading} = this.state;
+     if (loading) {
+       return (
+         <div>
+           Loading...
+         </div>
+       );
+     }
+
      return (
        <Router >
          <div className="App">
-           <NavBar user={user} />
+           <NavBar user={user} onSignOutClick={this.signOut} />
            <Switch>
              <Route path="/sign_in" render={props => {
                return <SignInPage {...props} onSignIn={this.signIn} />
