@@ -4,6 +4,7 @@ import {AuctionIndexPage} from './AuctionIndexPage';
 import {AuctionNewPage} from './AuctionNewPage';
 import {SignInPage} from './SignInPage';
 import {SignUpPage} from './SignUpPage';
+import {HomePage} from './HomePage';
 import {AuthRoute} from './AuthRoute';
 import {NavBar} from './NavBar';
 import {
@@ -64,6 +65,7 @@ class App extends Component {
          <div className="App">
            <NavBar user={user} onSignOutClick={this.signOut} />
            <Switch>
+             <Route exact path="/" component={HomePage} />
              <Route path="/sign_in" render={props => {
                return <SignInPage {...props} onSignIn={this.signIn} />
              }} />
