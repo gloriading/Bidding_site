@@ -21,6 +21,9 @@
 
 > rails g controller Api::V1::Tokens --no-assets --no-helper --skip-template-engine
 
----
+> rails g controller Api::V1::Users --no-assets --no-helper --skip-template-engine
+> rails g serializer user first_name last_name email password_digest
+
+---not Implement yet
 > rails g controller Api::V1::Bids --no-assets --no-helper --skip-template-engine
 > rails g serializer bid bid_price:float
