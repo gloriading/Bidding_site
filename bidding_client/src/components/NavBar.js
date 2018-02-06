@@ -3,6 +3,7 @@
  import {Link} from 'react-router-dom';
 
  function NavBar (props) {
+   const {user} = props;
    return (
      <nav
        style={{
@@ -13,11 +14,23 @@
        <Link style={{marginRight: '20px'}} to="/">Home</Link>
        <Link style={{marginRight: '20px'}} to="/auctions/new">New Auction</Link>
        <Link to="/auctions">Auctions</Link>
-       <CurrentDateTime
-         style={{
-           marginLeft: 'auto'
-         }}
-       />
+       {
+         user ? (
+           <span
+             style={{marginLeft: 'auto', marginRight: '20px'}}
+           >
+             Hello, {user.full_name}
+           </span>
+         ) : (
+           <Link
+             style={{marginLeft: 'auto', marginRight: '20px'}}
+             to="/sign_in"
+           >
+               Sign In
+           </Link>
+         )
+       }
+       <CurrentDateTime />
      </nav>
    );
  }
